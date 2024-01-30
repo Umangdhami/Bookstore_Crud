@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Data</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-dark text-white">
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <table class="table table-hover table-dark mt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Bookname</th>
+                            <th scope="col">Book_Author</th>
+                            <th scope="col">Pages</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% bookData.forEach((book, index)=> { %>
+
+                            <tr>
+                                <td scope="row">
+                                    <%= index+1 %>
+                                </td>
+                                <td>
+                                    <%= book.bookname %>
+                                </td>
+                                <td>
+                                    <%= book.bookauthor %>
+                                </td>
+                                <td>
+                                    <%= book.pages %>
+                                </td>
+                                <td>
+                                    <span class="pe-4">
+                                        <a href="/editBook/<%= book.id %>"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    </span>
+                                    <span>
+                                        <a href="/deletBook/<%= book.id %>" class="text-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <% }) %>
+                    </tbody>
+                </table>
+
+                <div class="col-12 p-0 mt-4">
+                    <a href="/" class="btn btn-primary px-3 py-1">Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
